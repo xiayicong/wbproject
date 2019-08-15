@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 public class GamePlayingState : State<GamePlayingState>
 {
-    public Text m_context;
-
     public override bool EvaluateCondition(IState preState)
     {
         return true;
@@ -14,8 +12,7 @@ public class GamePlayingState : State<GamePlayingState>
     public override void EnterState(FSM fsm,IState preState)
     {
         base.EnterState(fsm,preState);
-        m_context.text = "游戏进行中";
-        m_context.gameObject.SetActive(true);
+        UIManager.Instance.ShowDialog(UIName.UI2);
         StartCoroutine(ChangeState());
     }
 

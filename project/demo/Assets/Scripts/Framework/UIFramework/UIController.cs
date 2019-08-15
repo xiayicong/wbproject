@@ -5,24 +5,25 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour, IView
 {
-    public UIName m_UIName = UIName.None;   
-
-    public void OnEnterUI()
+    public UIName m_UIName = UIName.None;
+    [HideInInspector]
+    public int m_iLayer = -1;
+    public virtual void OnEnterUI()
     {
         
     }
 
-    public void OnLeaveUI()
+    public virtual void OnLeaveUI()
     {
         
     }
 
-    public void RegisterEvent()
+    public virtual void RegisterEvent()
     {
        
     }
 
-    public void UnRegisterEvent()
+    public virtual void UnRegisterEvent()
     {
         
     }

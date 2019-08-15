@@ -14,6 +14,8 @@ public class FSM : UnitySingleton<FSM>
 
     private void Awake()
     {
+        UIManager.Instance.Init();
+        UIRegister.RegisterUI();
         SwitchState(GameStartState.Instance);
     }
 

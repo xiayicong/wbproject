@@ -2,19 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FSM : UnitySingleton<FSM>
+public class FSM : ModelManage
 {
     private IState m_curState;
     private IState m_PreState;
 
-    public void Initialize()
+    protected override void OnInit()
     {
-        
-    }
-
-    private void Awake()
-    {
-        UIManager.Instance.Init();
         UIRegister.RegisterUI();
         SwitchState(GameStartState.Instance);
     }
@@ -37,7 +31,7 @@ public class FSM : UnitySingleton<FSM>
         m_curState = nextState;
     }
 
-    private void Update()
+    private void MainThread()
     {
         if(m_curState!=null)
         {

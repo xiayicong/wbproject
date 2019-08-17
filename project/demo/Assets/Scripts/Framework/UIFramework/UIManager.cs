@@ -8,10 +8,10 @@ public enum UIShowType
     Add
 }
 
-public class UIManager : UnitySingleton<UIManager>, IManager
+public class UIManager : ModelManage
 {
-    public Transform[] m_UILayers;
-    public Transform m_cacheLayer;
+    private Transform[] m_UILayers;
+    private Transform m_cacheLayer;
     [HideInInspector]
     public UIController m_curUIController;
     private int m_iCurUILayer = 0;
@@ -19,8 +19,16 @@ public class UIManager : UnitySingleton<UIManager>, IManager
     private Dictionary<int, List<UIName>> m_LayerManager = new Dictionary<int, List<UIName>>();
     private Dictionary<UIName, UIController> m_rgCacheUIController = new Dictionary<UIName, UIController>();
     private Stack<UIController> m_rgDialogStack = new Stack<UIController>();
-    public void Init()
+    
+    protected override void OnInit()
     {
+        Transform layer = GameObject.Find("Layer").transform;
+        m_UILayers = new Transform[layer.childCount];
+        for (int i = 0; i < layer.childCount; i++)
+        {
+            m_UILayers[i] = layer.GetChild(i);
+        }
+        m_cacheLayer = GameObject.Find("CacheLayer").transform;
         m_iCurUILayer = 0;
         m_curUIController = null;
     }

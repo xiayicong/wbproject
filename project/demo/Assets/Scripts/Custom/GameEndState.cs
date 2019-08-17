@@ -12,7 +12,7 @@ public class GameEndState : State<GameEndState>
     public override void EnterState(FSM fsm, IState preState)
     {
         base.EnterState(fsm, preState);
-        UIManager.Instance.ShowDialog(UIName.UI3,UIShowType.Add);
+        GameEntry.instance.FindModel<UIManager>().ShowDialog(UIName.UI3,UIShowType.Add);
         StartCoroutine(ChangeState());
     }
 

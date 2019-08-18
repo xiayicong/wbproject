@@ -1,9 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TimerEvent
 {
+    /// <summary>
+    /// 开始时间
+    /// </summary>
+    public long mStartTime = 0;
+    
     /// <summary>
     /// 持续时间
     /// </summary>
@@ -17,5 +23,5 @@ public class TimerEvent
     /// <summary>
     /// 回调
     /// </summary>
-    public delegate void endFunction();
+    public Action endFun;
 }

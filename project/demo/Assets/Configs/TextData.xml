@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <asset id="0" dec="tile" one="asd" two="asdsd" three="sd" four="xc"/>
+    <asset id="1" dec="tile1" one="asds" two="vz" three="sd" four="xc"/>
+    <asset id="2" dec="tile2" one="sda" two="cx" three="sd" four="xc"/>
+    <asset id="3" dec="tile3" one="vs" two="zvvsd" three="sd" four="xc"/>
+    <asset id="4" dec="tile4" one="asd" two="asdsd" three="sd" four="xc"/>
+    <asset id="5" dec="tile5" one="asd" two="asdsd" three="sd" four="xc"/>
+    <asset id="6" dec="tile6" one="asd" two="asdsd" three="sd" four="xc"/>
+</config>

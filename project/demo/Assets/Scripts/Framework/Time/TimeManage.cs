@@ -6,6 +6,9 @@ using System.Collections.Generic;
 /// 时间管理
 /// </summary>
 public class TimeManage : ModelManage {
+    
+    Dictionary<string, TimerEvent> mAllTimerEvents =new Dictionary<string, TimerEvent>();
+    
     /// <summary>
     /// 当前时间戳
     /// </summary>
@@ -61,11 +64,31 @@ public class TimeManage : ModelManage {
     /// </summary>
     private void CalcTimestamp()
     {
-        
+        foreach (var item in mAllTimerEvents)
+        {
+            if(!item.Value.isGo)
+                continue;
+            if(GetTimestamp() - item.Value.mStartTime > item.Value.mTimeLong)
+                item.Value.endFun.Invoke();
+        }
     }
-
-    public void AddTimerEvent(TimerEvent timeEvent)
+    
+    /// <summary>
+    /// 倒计时事件
+    /// </summary>
+    /// <param name="timeEvent"></param>
+    public void AddTimerEvent(string name, TimerEvent timeEvent)
     {
-        
+        if(mAllTimerEvents.ContainsKey(name))
+            return;
+        timeEvent.mStartTime = GetTimestamp();
+        mAllTimerEvents.Add(name, timeEvent);
+    }
+    
+    public void RemoveimerEvent(string name)
+    {
+        if(!mAllTimerEvents.ContainsKey(name))
+            return;
+        mAllTimerEvents.Remove(name);
     }
 }

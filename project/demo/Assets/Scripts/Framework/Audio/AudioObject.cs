@@ -2,6 +2,9 @@ using Framework.Common;
 using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// 播放声音组件
+/// </summary>
 public class AudioObject : MonoBehaviour
 {
     private AudioSource audio;
@@ -12,7 +15,13 @@ public class AudioObject : MonoBehaviour
     {
         audio = this.GetComponent<AudioSource>();
     }
-
+    
+    /// <summary>
+    /// 播放声音
+    /// </summary>
+    /// <param name="clip"></param>
+    /// <param name="delay"></param>
+    /// <param name="isLoop"></param>
     public void Play(AudioClip clip, float delay = 0, bool isLoop = false)
     {
         audio.clip = clip;
@@ -27,7 +36,12 @@ public class AudioObject : MonoBehaviour
         audio.Stop();
         StopCoroutine(endFunction);
     }
-
+    
+    /// <summary>
+    /// 完成后自动销毁进回收池
+    /// </summary>
+    /// <param name="length"></param>
+    /// <returns></returns>
     private IEnumerator PlayEnd(float length)
     {
         yield return new WaitForSeconds(length);

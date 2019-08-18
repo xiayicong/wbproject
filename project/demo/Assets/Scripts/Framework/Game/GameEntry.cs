@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameEntry : GameManage
 {
     public static GameEntry instance = null;
+    
     void Awake()
     {
         instance = this;
@@ -16,8 +17,8 @@ public class GameEntry : GameManage
     void Start()
     {
         RegisterAllModel();
-        FindModel<TableManage>().LoadConfig();
         InitAllModel();
+        FindModel<TableManage>().LoadConfig();
     }
 
     /// <summary>
@@ -55,6 +56,7 @@ public class GameEntry : GameManage
         RegisterModel(new FSM());
         RegisterModel(new ObjectPool());
         RegisterModel(new ResourManage());
+        RegisterModel(new SceneManage());
     }
 
      /// <summary>

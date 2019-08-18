@@ -4,12 +4,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using Object = System.Object;
 
+/// <summary>
+/// 加载方式
+/// </summary>
 public enum LoadType
 {
     Syn = 0,
     Asyn = 1
 }
 
+/// <summary>
+/// 资源管理 暂时不考虑ab
+/// </summary>
 public class ResourManage : ModelManage
 {
     /// <summary>

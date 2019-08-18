@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Framework.Common
 {
+    /// <summary>
+    /// 对象池 暂时没有脚本机制
+    /// </summary>
     public class ObjectPool : ModelManage
     {
         private Transform root;
